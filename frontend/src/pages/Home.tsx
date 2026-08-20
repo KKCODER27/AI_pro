@@ -3,115 +3,54 @@ import "./Home.css";
 
 function Home() {
   return (
-    <div className="home-page">
+    <div className="hero">
 
-      {/* Background circles */}
-      <div className="circle circle1"></div>
-      <div className="circle circle2"></div>
-      <div className="circle circle3"></div>
-
-      {/* Navbar */}
+      {/* Navigation */}
       <nav className="navbar">
 
-        <div className="brand">
-          <span>CAREER</span> MAKER
+        <div className="logo">
+          <span>◆</span>
         </div>
 
-        <div className="nav-buttons">
-
-          <Link to="/login">
-            <button className="nav-login">
-              Login
-            </button>
-          </Link>
-
-          <Link to="/register">
-            <button className="nav-register">
-              Register
-            </button>
-          </Link>
-
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
         </div>
 
       </nav>
 
-      {/* Main content */}
-      <div className="hero">
+      {/* Content on top of background */}
+      <div className="hero-content">
 
-        {/* Left side */}
         <div className="hero-text">
-
-          <p className="small-title">
-            YOUR CAREER STARTS HERE
-          </p>
+          <p className="small-title">BUILD YOUR</p>
 
           <h1>
-            Build Your
-            <br />
-            <span>Dream Career</span>
+            DREAM <span>CAREER</span>
           </h1>
 
           <p className="description">
-            Discover opportunities, improve your skills and
-            take the next step towards your dream career.
+            Discover opportunities, build skills
+            <br />
+            and grow your career.
           </p>
 
-          <div className="hero-buttons">
+          <div className="buttons">
 
             <Link to="/register">
-              <button className="start-button">
+              <button className="get-started">
                 Get Started →
               </button>
             </Link>
 
             <Link to="/login">
-              <button className="login-button">
+              <button className="login-btn">
                 Login
               </button>
             </Link>
 
           </div>
-
-        </div>
-
-        {/* Right side robot */}
-        <div className="robot-section">
-
-          <div className="glow"></div>
-
-          <img
-            src="/robot.png"
-            alt="Career Maker AI Robot"
-            className="home-robot"
-          />
-
-          <div className="robot-message">
-            <span>🤖</span>
-            Hi! I'm Buddy.
-            <br />
-            Let's build your career!
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* Bottom features */}
-      <div className="features">
-
-        <div className="feature">
-          <div>🎯</div>
-          <p>Find Opportunities</p>
-        </div>
-
-        <div className="feature">
-          <div>💡</div>
-          <p>Build Skills</p>
-        </div>
-
-        <div className="feature">
-          <div>🚀</div>
-          <p>Grow Your Career</p>
         </div>
 
       </div>

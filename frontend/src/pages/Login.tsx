@@ -1,130 +1,163 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./Login.css";
 
-function Login() {
+const Login: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="login-page">
 
-      <div className="login-container">
+      {/* Login Card */}
+      <div className="login-card">
 
-        {/* Robot */}
+        {/* Robot Icon */}
+        <div className="login-robot-circle">
+          <img src="/robot.png" alt="Robot" />
+        </div>
 
-        <div className="login-robot-panel">
+        {/* Heading */}
+        <h2>
+          Hello!
+          <br />
+          <span>
+            Welcome <b>Back</b>
+          </span>
+        </h2>
 
-          <div className="login-glow"></div>
+        <div className="title-line"></div>
 
-          <img
-            src="/robot.png.png"
-            alt="AI Robot"
-            className="login-robot"
-          />
 
-          <div className="login-message">
-            🤖
-            <br />
-            Welcome back!
-            <br />
-            Let's continue your journey.
+        {/* Email */}
+        <div className="login-input-group">
+
+          <label>Email</label>
+
+          <div className="login-input-box">
+
+            <span className="input-icon">
+              ✉
+            </span>
+
+            <input
+              type="email"
+              placeholder="Enter your email"
+            />
+
           </div>
 
         </div>
 
-        {/* Login form */}
 
-        <div className="login-form-panel">
+        {/* Password */}
+        <div className="login-input-group">
 
-          <div className="login-icon">
-            🤖
+          <label>Password</label>
+
+          <div className="login-input-box">
+
+            <span className="input-icon">
+              🔒
+            </span>
+
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+            />
+
+            <button
+              type="button"
+              className="eye-button"
+              onClick={() =>
+                setShowPassword(!showPassword)
+              }
+            >
+              {showPassword ? "◉" : "◌"}
+            </button>
+
           </div>
 
-          <h1>
-            Welcome Back <span>Buddy!</span>
-          </h1>
+        </div>
+
+
+        {/* Remember / Forgot */}
+        <div className="login-options">
+
+          <label className="remember">
+
+            <input type="checkbox" />
+
+            <span>
+              Remember me
+            </span>
+
+          </label>
+
+          <a href="#" className="forgot">
+            Forgot Password?
+          </a>
+
+        </div>
+
+
+        {/* Sign In */}
+        <button className="main-login-button">
+
+          Sign In
+
+          <span>→</span>
+
+        </button>
+
+
+        {/* Divider */}
+        <div className="or-divider">
+
+          <span></span>
 
           <p>
-            Login to continue your career journey.
+            Or continue with
           </p>
 
-          <form>
+          <span></span>
 
-            <div className="login-input">
+        </div>
 
-              <label>Email</label>
 
-              <input
-                type="email"
-                placeholder="Enter your email"
-              />
+        {/* Social Buttons */}
+        <div className="social-buttons">
 
-            </div>
+          <button>
+            <span className="facebook-icon">
+              f
+            </span>
+            Facebook
+          </button>
 
-            <div className="login-input">
+          <button>
+            <span className="apple-icon">
+              ●
+            </span>
+            Apple
+          </button>
 
-              <label>Password</label>
+          <button>
+            <span className="google-icon">
+              G
+            </span>
+            Google
+          </button>
 
-              <input
-                type="password"
-                placeholder="Enter your password"
-              />
+        </div>
 
-            </div>
 
-            <div className="remember">
+        {/* Register */}
+        <div className="register-text">
 
-              <label>
-                <input type="checkbox" />
-                Remember me
-              </label>
+          Don't have an account?
 
-              <a href="#">
-                Forgot Password?
-              </a>
-
-            </div>
-
-            <button className="login-submit">
-              Login
-            </button>
-
-          </form>
-
-          <div className="new-account">
-
-            Don't have an account?
-
-            <Link to="/register">
-              Register
-            </Link>
-
-          </div>
-
-          <div className="login-or">
-
-            <span></span>
-            Or continue with
-            <span></span>
-
-          </div>
-
-          <div className="login-social">
-
-            <button>
-              🌈 Google
-            </button>
-
-            <button>
-              🔵 Facebook
-            </button>
-
-          </div>
-
-          <div className="login-footer">
-
-            <span>Terms of Service</span>
-
-            <span>Privacy Policy</span>
-
-          </div>
+          <a href="/register">
+            {" "}Register
+          </a>
 
         </div>
 
@@ -132,6 +165,6 @@ function Login() {
 
     </div>
   );
-}
+};
 
 export default Login;

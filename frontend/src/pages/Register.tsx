@@ -1,142 +1,215 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./Register.css";
 
-function Register() {
+const Register: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   return (
-    <div className="auth-page">
+    <div className="register-page">
 
-      <div className="auth-container">
+      {/* Background decoration */}
+      <div className="register-glow glow-one"></div>
+      <div className="register-glow glow-two"></div>
 
-        {/* Left robot section */}
+      {/* NAVBAR */}
+      <nav className="register-navbar">
 
-        <div className="robot-panel">
-
-          <div className="ring ring1"></div>
-          <div className="ring ring2"></div>
-
-          <img
-            src="/robot.png"
-            alt="AI Robot"
-            className="auth-robot"
-          />
-
-          <div className="chat-one">
-            Hello! Can you help me?
+        <div className="register-logo">
+          <div className="logo-symbol">C</div>
+          <div className="logo-text">
+            <span>CAREER</span>
+            <span>MAKER</span>
           </div>
-
-          <div className="chat-two">
-            <strong>Buddy! 🤖</strong>
-            <br />
-            Sure, I'm ready to help you.
-          </div>
-
         </div>
 
-        {/* Register form */}
+        <div className="register-nav-links">
+          <a href="/">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Projects</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
 
-        <div className="form-panel">
+        <div className="register-nav-buttons">
+          <a href="/login" className="nav-login">
+            Login
+          </a>
 
-          <div className="robot-icon">
-            🤖
+          <a href="/register" className="nav-register">
+            Register
+          </a>
+        </div>
+
+      </nav>
+
+      {/* MAIN CONTENT */}
+      <main className="register-content">
+
+        {/* LEFT SIDE */}
+        <section className="register-left">
+
+          <div className="small-heading">
+            <span></span>
+            BUILD YOUR
+            <span></span>
           </div>
 
           <h1>
-            Welcome to Sign Up <span>Buddy!</span>
+            <span className="dream-text">DREAM</span>
+            <span className="career-text">CAREER</span>
           </h1>
 
-          <p className="form-subtitle">
-            Create your account and start your career journey.
+          <p>
+            Modern platform to discover opportunities,
+            <br />
+            build skills and grow your career.
           </p>
 
-          <form>
-
-            <div className="input-group">
-              <label>Full Name</label>
-
-              <input
-                type="text"
-                placeholder="Enter your name"
-              />
-            </div>
-
-            <div className="input-group">
-              <label>Email</label>
-
-              <input
-                type="email"
-                placeholder="Enter your email"
-              />
-            </div>
-
-            <div className="input-group">
-              <label>Password</label>
-
-              <input
-                type="password"
-                placeholder="Enter your password"
-              />
-            </div>
-
-            <div className="terms">
-
-              <input
-                type="checkbox"
-                id="terms"
-              />
-
-              <label htmlFor="terms">
-                I agree to the{" "}
-                <span>Terms of Conditions</span>{" "}
-                and <span>Privacy Policy</span>
-              </label>
-
-            </div>
-
-            <button
-              type="submit"
-              className="submit-btn"
-            >
-              Sign Up
-            </button>
-
-          </form>
-
-          <p className="account-text">
-            Already have an account?{" "}
-            <Link to="/login">
-              Sign In
-            </Link>
-          </p>
-
-          <div className="or">
-            <span></span>
-            Or continue with
+          <div className="blue-line">
             <span></span>
           </div>
 
+        </section>
+
+        {/* RIGHT REGISTER CARD */}
+        <section className="register-card">
+
+          {/* ICON */}
+          <div className="register-icon">
+            <span>♙</span>
+          </div>
+
+          <h2>
+            Hello!
+          </h2>
+
+          <h3>
+            Create Your <span>Account</span>
+          </h3>
+
+          <div className="heading-line">
+            <span></span>
+            <b></b>
+            <span></span>
+          </div>
+
+          {/* FULL NAME */}
+          <div className="input-box">
+            <span className="input-icon">♙</span>
+
+            <input
+              type="text"
+              placeholder="Full Name"
+            />
+          </div>
+
+          {/* EMAIL */}
+          <div className="input-box">
+            <span className="input-icon">✉</span>
+
+            <input
+              type="email"
+              placeholder="Email Address"
+            />
+          </div>
+
+          {/* PASSWORD */}
+          <div className="input-box">
+            <span className="input-icon">♧</span>
+
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+            />
+
+            <button
+              type="button"
+              className="eye-button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "◉" : "◌"}
+            </button>
+          </div>
+
+          {/* CONFIRM PASSWORD */}
+          <div className="input-box">
+            <span className="input-icon">♧</span>
+
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+            />
+
+            <button
+              type="button"
+              className="eye-button"
+              onClick={() =>
+                setShowConfirmPassword(!showConfirmPassword)
+              }
+            >
+              {showConfirmPassword ? "◉" : "◌"}
+            </button>
+          </div>
+
+          {/* TERMS */}
+          <div className="terms">
+            <input type="checkbox" id="terms" />
+
+            <label htmlFor="terms">
+              I agree to the{" "}
+              <span>Terms of Service</span>{" "}
+              and{" "}
+              <span>Privacy Policy</span>
+            </label>
+          </div>
+
+          {/* CREATE ACCOUNT */}
+          <button className="create-account">
+            Create Account
+            <span>→</span>
+          </button>
+
+          {/* DIVIDER */}
+          <div className="continue-line">
+            <span></span>
+            <p>Or continue with</p>
+            <span></span>
+          </div>
+
+          {/* SOCIAL BUTTONS */}
           <div className="social-buttons">
 
             <button>
-              🌈 Google
+              <b className="google">G</b>
+              Google
             </button>
 
             <button>
-              🔵 Facebook
+              <b className="apple">●</b>
+              Apple
+            </button>
+
+            <button>
+              <b className="facebook">f</b>
+              Facebook
             </button>
 
           </div>
 
-          <div className="footer-links">
-            <span>Terms of Service</span>
-            <span>Privacy Policy</span>
-          </div>
+          {/* LOGIN LINK */}
+          <p className="already-account">
+            Already have an account?
+            <a href="/login"> Login</a>
+          </p>
 
-        </div>
+        </section>
 
-      </div>
+      </main>
 
     </div>
   );
-}
+};
 
 export default Register;
